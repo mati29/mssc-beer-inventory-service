@@ -14,20 +14,11 @@
  *     You should have received a copy of the GNU General Public License
  *     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
-package guru.sfg.beer.inventory.service.repositories;
 
-import guru.sfg.beer.inventory.service.domain.BeerInventory;
-import org.springframework.data.jpa.repository.JpaRepository;
+package guru.sfg.brewery.model;
 
-import java.util.List;
-import java.util.UUID;
-
-/**
- * Created by jt on 2019-01-26.
- */
-public interface BeerInventoryRepository extends JpaRepository<BeerInventory, UUID> {
-
-    List<BeerInventory> findAllByBeerId(UUID beerId);
-
-    List<BeerInventory> findAllByUpc(String upc);
+public enum OrderStatusEnum {
+    NEW, VALIDATED, VALIDATION_PENDING, VALIDATION_EXCEPTION,
+    ALLOCATION_PENDING, ALLOCATED, ALLOCATION_EXCEPTION,
+    PENDING_INVENTORY, PICKED_UP, DELIVERED, DELIVERY_EXCEPTION
 }
